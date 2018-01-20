@@ -2,16 +2,43 @@
 <html>
     <head>
         <meta charset='utf-8' />
-        <title>Your first Backbone.js App </title>
+        <title>Articulos </title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     </head>
     <body>
         <section id="todoapp">
             <header id="header">
-
+                <div class="navbar navbar-expand-lg navbar-dark bg-dark">
+                    <a class="navbar-brand" href="#">Home</a>
+                    <div class="collapse navbar-collapse">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/">Salir</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </header>
             <section id="main">
+                <div class="container">
+                    <table class="table table-hover mt-2">
+                        <thead>
+                            <tr class="table-primary">
+                                <th>Codigo</th>
+                                <th>Nombre</th>
+                                <th>Grupo</th>
+                                <th>Grupo2</th>
+                                <th>Familia1</th>
+                                <th>Familia2</th>
+                                <th>Familia3</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="cuerpo">
 
+                        </tbody>
+                    </table>
+                </div>
             </section>
         </section>
 
@@ -23,11 +50,15 @@
 
         <!--Templates--->
         <script type="text/template" id="item-template">
-            <div>
-                <%= codigo %><%= nombre %>
-            </div>
+            <td><%= codigo %></td>
+            <td><%= nombre %></td>
+            <td><%= grupo %></td>
+            <td><%= grupo2 %></td>
+            <td><%= familia1 %></td>
+            <td><%= familia2 %></td>
+            <td><%= familia3 %></td>
+            <td>Edit</td>
         </script>
-
 
         <script type="text/javascript" src="js/model.js"></script>
         <script type="text/javascript" src="js/view.js"></script>
