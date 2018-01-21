@@ -1,15 +1,14 @@
 var AppRouter = Backbone.Router.extend({
 
     routes: {
-        '': 'list'
+        '': 'list',
+        'list/page/:page'	: 'list'
     },
 
-    initialize: function(){
-
-    },
-
-    list: function(){
-        var appView=new AppView();        
+    list: function(page){
+        var p = page ? parseInt(page, 10) : 1;
+        var appView=new AppView({page:p});
+        appView.render();
     }
 
 });

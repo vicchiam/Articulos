@@ -9,10 +9,10 @@ window.Articulo=Backbone.Model.extend({
         grupo2:''
     },
     idAttribute:'codigo',
-    urlRoot: 'php/test.php'
+    urlRoot: 'api/list'
 });
 
 window.ArticuloList=Backbone.Collection.extend({
     model: Articulo,
-    url: 'php/test.php'
+    url: 'api/list'
 });
