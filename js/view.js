@@ -4,12 +4,14 @@ window.AppView = Backbone.View.extend({
         this.page=args.page;
     },
     render: function(){
-        var listado=new ArticuloList();
+        var listado=new ArticuloList({codigo: '106'});
         var p=this.page;
-        listado.fetch({success:function(){
-            var articuloList=new ArticuloListView({model:listado, page: p});
-            $('#tbody').append(articuloList.render().el);
-        }});
+        listado.fetch({
+            success:function(){
+                var articuloList=new ArticuloListView({model:listado, page: p});
+                $('#tbody').append(articuloList.render().el);
+            }
+        });
     }
 });
 
@@ -23,8 +25,8 @@ window.ArticuloListView=Backbone.View.extend({
         this.$el.empty();
 
         var len = this.model.length;
-        var startPos = (this.page - 1) * 20;
-        var endPos = Math.min(startPos + 20, len);
+        var startPos = (this.page - 1) * 100;
+        var endPos = Math.min(startPos + 100, len);
 
         for(var i=startPos;i<endPos;i++){
             var articuloView=new ArticuloView({model:this.model.at(i)});

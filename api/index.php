@@ -8,7 +8,12 @@
 
     $app=new \Slim\App;
 
-    $app->get('/list', function(Request $request, Response $response){
+    $app->get('/list/{codigo}', function(Request $request, Response $response, array $args){
+        $codigo=$args['codigo'];
+        $op="";
+        if(!empty($codigo)){
+            $op=" and codigo like '".$codigo."%'";
+        }
         $sql="
             SELECT
                 CODIGO as codigo,
@@ -22,11 +27,9 @@
                 Articulos2
             WHERE
                 LENGTH(CODIGO)<=5
+                ".$op."
             ORDER BY
                 CODIGO
-            LIMIT
-                0,500
-
         ";
         try{
             $db=getConnection();

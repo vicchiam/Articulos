@@ -14,5 +14,10 @@ window.Articulo=Backbone.Model.extend({
 
 window.ArticuloList=Backbone.Collection.extend({
     model: Articulo,
-    url: 'api/list'
+    initialize : function(args){
+        this.codigo=args.codigo;
+    },
+    url: function(){
+        return 'api/list/'+this.codigo;
+    }
 });
